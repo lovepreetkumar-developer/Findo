@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Findo</string>
+    <string name="back">Back</string>
+    <string name="find_mobile_phone_when">Find mobile phone when its in silent mode by calling from these two saved numbers</string>
+    <string name="write_first_number">Write first number</string>
+    <string name="number_1">Number 1</string>
+    <string name="save_your_other">Save your other</string>
+    <string name="numbers">Numbers</string>
+    <string name="number_2">Number 2</string>
+    <string name="write_second_number">Write second number</string>
+    <string name="save">SAVE</string>
+    <string name="about_this_app">About this app?</string>
+    <string name="first_number">First Number</string>
+    <string name="second_number">Second Number</string>
+
+    <string name="sharing_app_content">Find your silent phone by calling from saved number\n\n
+        https://play.google.com/store/apps/details?id=com.techeytech.findo</string>
+    <string name="text_about_us">When you have silent your mobile and forget where it is located then Just call 2 times from any of the saved number and when you will call third time, this application will convert your silent
+mode to Normal Mode / Ringer Mode with the 100% Volume rate automatically. When phone will ring then you can find your near mobile easily. Cool…</string>
+    <string name="close">Close</string>
+
+</resources>

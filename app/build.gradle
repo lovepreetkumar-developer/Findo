@@ -1,0 +1,93 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+def keystoreLocation = getProject().getProjectDir().getParent().toString() + '/credentials/findo.jks'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.0"
+
+    defaultConfig {
+        applicationId "com.techfathers.findo"
+        minSdkVersion 23
+        targetSdkVersion 30
+        versionCode 6
+        versionName "1.1"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        config {
+            keyAlias 'findo'
+            keyPassword 'findo@132'
+            storeFile file(keystoreLocation)
+            storePassword 'findo@132'
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.config
+            debuggable false
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            debuggable true
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+        dataBinding = true
+    }
+
+    android {
+
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+
+        kotlinOptions {
+            jvmTarget = "1.8"
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.3.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    /*********Dimension********/
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+
+    /*********Material********/
+    implementation 'com.google.android.material:material:1.1.0'
+
+    /*********Coroutines********/
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.2"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.2"
+
+    /*********Kodein********/
+    implementation "org.kodein.di:kodein-di-generic-jvm:6.5.1"
+    implementation "org.kodein.di:kodein-di-framework-android-x:6.5.1"
+
+    /*********Preference********/
+    implementation "androidx.preference:preference-ktx:1.1.1"
+
+    /*********Runtime permission kotlin********/
+    implementation 'com.github.florent37:runtime-permission-kotlin:1.1.2'
+}
